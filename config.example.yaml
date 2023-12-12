@@ -1,0 +1,17 @@
+server:
+  # web服务的IP
+  Address:
+  # web服务的端口
+  Port:
+
+database:
+  # 数据库服务器地址
+  domain:
+  # 数据库端口
+  port:
+  # 用户名
+  user:
+  # 密码
+  password:
+  # 数据库名称
+  name:
