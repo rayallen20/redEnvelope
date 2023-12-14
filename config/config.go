@@ -10,7 +10,10 @@ import (
 // env 用于区分生产/开发环境的变量 默认为开发环境
 // dev: 开发环境
 // proc: 生产环境
-var env = "dev"
+var (
+	env       = "dev"
+	ConfigObj *Conf
+)
 
 const (
 	// configFileName 配置文件名
@@ -19,8 +22,9 @@ const (
 
 // Conf 配置对象
 type Conf struct {
-	Server   Server   // Server web服务相关配置
-	Database Database // Database 数据库相关配置
+	Server              Server   // Server web服务相关配置
+	Database            Database // Database 数据库相关配置
+	CenterWalletAddress string   // CenterWalletAddress 中央钱包地址
 }
 
 // Load 读取配置文件至Config对象
@@ -42,6 +46,7 @@ func (c *Conf) Load() {
 	if err != nil {
 		panic("unmarshal config failed:" + err.Error())
 	}
+	ConfigObj = c
 }
 
 // getConfigFilePath 获取默认配置文件的路径

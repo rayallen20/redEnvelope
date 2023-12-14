@@ -15,3 +15,6 @@ database:
   password:
   # 数据库名称
   name:
+
+# 中央钱包地址
+centerWalletAddress:

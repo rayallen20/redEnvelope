@@ -18,7 +18,8 @@ func Init(dbConf config.Database) {
 	dsn := dbConf.GenConnArgs()
 	gormConfig := &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
-			SingularTable: false,
+			// 全局禁用表名复数
+			SingularTable: true,
 		},
 	}
 	db, err := gorm.Open(mysql.Open(dsn), gormConfig)
